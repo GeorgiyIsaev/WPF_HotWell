@@ -1,29 +1,20 @@
-﻿using System;
-
+﻿using campersClass;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
-using campersClass;
 
 namespace WPF_HotWell
 {
-    public delegate string Info_deleg(string str);
+
+    public delegate void Info_deleg(string str);
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        string info_message;
         public Info_deleg info_deleg;
         public MainWindow()
         {            
@@ -56,6 +47,7 @@ namespace WPF_HotWell
         }
         private void recet_full()
         {
+            //info_message = "";
             campers.read(); // прочесть из файла
             /*Возвращает прежние цвета полей*/
             input_name.Background = Brushes.White;
@@ -89,12 +81,12 @@ namespace WPF_HotWell
             }
             else
             {
-                MessageBox.Show(info_deleg); 
+                MessageBox.Show(info_message); 
             } 
         }
         private void messege(string mes)
         {
-            MessageBox.Show(mes);
+            info_message += mes;
         }
 
         private bool if_input_full()
