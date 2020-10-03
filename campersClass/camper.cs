@@ -8,8 +8,11 @@ using System.IO;
 
 namespace campersClass
 {
+    public delegate void record_info(string str);
     public static class campers
     {
+        public static record_info log_info;
+
         static public int? current_room; /*Сюда буду записывать текущую выбранную комнату*/
         /*int?  что бы инту можно было присвоит null*/
 
@@ -32,6 +35,7 @@ namespace campersClass
             {
                 foreach (camper tmp in campers.list_campers)
                     file.WriteLine(tmp.file_save());
+                log_info?.Invoke($"Временый файл temp.txt перезаписан, заселено {list_campers.Count} жильцов");
             }
         }
         static public void read()
@@ -62,6 +66,7 @@ namespace campersClass
                     DateTime d2 = DateTime.Parse(temp_str); 
                     temp.record_DataTime(d1, d2);
                     list_campers.Add(temp);
+                    log_info?.Invoke($"Данные из файла temp.txt успешно прочитаны");
                 }
             }
         }

@@ -68,7 +68,7 @@ namespace WPF_HotWell
                 temp.record_FIO_T(input_name.Text, input_famile.Text, input_father.Text, input_tel.Text);
                 /*В чем разница между bool? и просто bool? почему я не могу сразу передать значение*/
                 temp.record_room(campers.current_room.Value, add_futon.IsChecked == true, add_food.IsChecked == true);
-                /*Не получается программное в лист бокс передать даты, 
+                /*Не получается программно в лист бокс передать даты, 
                  * условно всегда будит только одна дата - сегодняшняя*/
 
                 int count_num = Convert.ToInt32(input_countDay.Text);
@@ -77,9 +77,11 @@ namespace WPF_HotWell
                 campers.list_campers.Add(temp);
                 label_info.Content = campers.find_nuber_room_STR(campers.current_room.Value);
                 campers.save();
+                campers.log_info?.Invoke($"Добвлен постоялец: \n{temp}");
             }
             else
             {
+                campers.log_info?.Invoke($"Неудачная попытка записи, причины: \n{info_message}");
                 MessageBox.Show(info_message);
                 info_message = "";
             }
