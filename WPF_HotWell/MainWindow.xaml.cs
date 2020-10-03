@@ -34,7 +34,7 @@ namespace WPF_HotWell
         private void But_Cler_Click(object sender, RoutedEventArgs e)
         {
             recet_full();
-
+            info_deleg = messege; //довбвил метод для делегата
             label_info.Content = "";
             input_name.Text = "";
             input_famile.Text = "";
@@ -81,7 +81,8 @@ namespace WPF_HotWell
             }
             else
             {
-                MessageBox.Show(info_message); 
+                MessageBox.Show(info_message);
+                info_message = "";
             } 
         }
         private void messege(string mes)
@@ -93,24 +94,25 @@ namespace WPF_HotWell
         {
             List<bool> false_if = new List<bool>();
             /*Проверка что все записи присутствуют перед началом записи*/
-            if (input_name.Text == "") { input_name.Background = Brushes.Yellow; false_if.Add(false); }
-            if (input_famile.Text == "") { input_famile.Background = Brushes.Yellow; false_if.Add(false); }
-            if (input_father.Text == "") { input_father.Background = Brushes.Yellow; false_if.Add(false); }
-            if (input_tel.Text == "") { input_tel.Background = Brushes.Yellow; false_if.Add(false); }
-            if (input_countDay.Text == "") { input_countDay.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_name.Text == "") { info_deleg?.Invoke("Не заполнено поле - Имя\n");  input_name.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_famile.Text == "") { info_deleg?.Invoke("Не заполнено поле - Фамилия\n"); input_famile.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_father.Text == "") { info_deleg?.Invoke("Не заполнено поле - Отчество\n"); input_father.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_tel.Text == "") { info_deleg?.Invoke("Не заполнено поле - Телефон\n"); input_tel.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_countDay.Text == "") { info_deleg?.Invoke("Не ввдено колличество дней проживания\n"); input_countDay.Background = Brushes.Yellow; false_if.Add(false); }
             /*Короче для проверки на число нашел вот такую замудренную конструкцию*/
             int num = 0;
             if(!int.TryParse(input_countDay.Text, out num))
             {
+                info_deleg?.Invoke("Колличество дней проживания должно быть числом!\n");
                 input_countDay.Background = Brushes.Yellow; false_if.Add(false);
-            }
-            foreach (bool if_it in false_if)
-                if (if_it == false) return false;
+            }        
 
             /*Проверка занятости комнаты*/
-            if (campers.current_room == null) return false;
-            if (campers.find_nuber_room(campers.current_room.Value)) return false;
+            if (campers.current_room == null) { info_deleg?.Invoke("Невыбрана комната для заселния\n"); false_if.Add(false); }
+            if (campers.find_nuber_room(campers.current_room.Value)) { info_deleg?.Invoke("В выбранной команте уже кто-то живет\n"); false_if.Add(false); }
 
+            foreach (bool if_it in false_if)
+                if (if_it == false) return false;
             return true;
         }
 
