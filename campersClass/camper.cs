@@ -28,11 +28,34 @@ namespace campersClass
         }
         static public void save()
         {
-            using (var file = new StreamWriter("info.log"))
+            using (var file = new StreamWriter("info.txt"))
             {
                 foreach (camper tmp in campers.list_campers)
                     file.WriteLine(tmp.file_save());
             }
+        }
+        static public void read()
+        {
+            string temp_str;
+            camper temp = new camper();
+            using (StreamReader sr = new StreamReader("info.txt"))
+            {
+                temp_str = sr.ReadLine();
+                /*Парсим ФИО*/
+                string[] stroka = temp_str.Split(":".ToCharArray());
+                temp.record_FIO_T(stroka[0], stroka[1], stroka[2], stroka[3]);
+
+                temp_str = sr.ReadLine();
+                stroka = temp_str.Split(":".ToCharArray());
+                temp.record_room(Convert.ToInt32(stroka[0]), stroka[1] == "True", stroka[2] == "True");
+
+                temp_str = sr.ReadLine();
+                DateTime d1 = DateTime.Parse(temp_str);
+                temp_str = sr.ReadLine();
+                DateTime d2 = DateTime.Parse(temp_str);
+                temp.record_DataTime(d1, d2);
+                list_campers.Add(temp);
+            }         
         }
     }
 
@@ -86,9 +109,8 @@ namespace campersClass
         }
         public string file_save()
         {
-            string temp = $"{name}: { famile}: {name_father}\n";
-            temp += $"{number_room}: {telefon}\n";
-            temp += $"{if_futon}: {if_food}\n";
+            string temp = $"{name}:{famile}:{name_father}:{telefon}\n";
+            temp += $"{number_room}:{if_futon}:{if_food}\n";
             temp += $"{data_input}\n";
             temp += $"{data_output}\n";
             return temp;  

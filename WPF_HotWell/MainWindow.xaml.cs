@@ -57,6 +57,7 @@ namespace WPF_HotWell
             input_countDay.Background = Brushes.White;
 
             calor_Room_Back(); //востановит цвета кнопкам
+            campers.read();
         }
 
         private void But_input_Click(object sender, RoutedEventArgs e)
