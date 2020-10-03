@@ -61,7 +61,7 @@ namespace campersClass
                     stroka = temp_str.Split(":".ToCharArray());
                     temp.record_room(Convert.ToInt32(stroka[0]), stroka[1] == "True", stroka[2] == "True");
                     /*Проверка что, такой постоялец уже есть*/
-                    if (find_nuber_room(Convert.ToInt32(stroka[0]))) {
+                    if (!find_nuber_room(Convert.ToInt32(stroka[0]))) {
                         temp_str = sr.ReadLine();
                         DateTime d1 = DateTime.Parse(temp_str);
                         temp_str = sr.ReadLine();
