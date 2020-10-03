@@ -69,7 +69,7 @@ namespace WPF_HotWell
                 /*Не получается програмно в лсит бокс передать даты, 
                  * условно всегда будит только одна сегодняшняя*/
                 
-                //DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+                //DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year); 
                 int count_num = Convert.ToInt32(input_countDay.Text);
                 label_info.Content = $"Дата {DateTime.Now} Число: {count_num}"; /*для проверки */
                 temp.record_DataTime(DateTime.Now, DateTime.Now.AddDays(count_num));
