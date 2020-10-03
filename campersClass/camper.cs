@@ -59,7 +59,7 @@ namespace campersClass
                     temp_str = sr.ReadLine();
                     DateTime d1 = DateTime.Parse(temp_str);
                     temp_str = sr.ReadLine();
-                    DateTime d2 = DateTime.Parse(temp_str);
+                    DateTime d2 = DateTime.Parse(temp_str); 
                     temp.record_DataTime(d1, d2);
                     list_campers.Add(temp);
                 }
