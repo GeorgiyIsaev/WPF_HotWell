@@ -110,10 +110,20 @@ namespace WPF_HotWell
 
         private void B_101_Click(object sender, RoutedEventArgs e)
         { /*Это для каждой кнопки получается придется обработчик делать... */
-            /*Что я хочу: если никто там не живет то при нажатии меняется на желтый желтый цвет,
-             * и выводит инфомрацию в лейб, если живет красный цвет и информацию о жильце*/
+          /*Что я хочу: если никто там не живет то при нажатии меняется на желтый желтый цвет,
+           * и выводит инфомрацию в лейб, если живет красный цвет и информацию о жильце*/
 
-           // if()
+            if (campers.find_nuber_room(Convert.ToInt32(input_countDay.Text))
+            {
+                b_101.Background = Brushes.Red;
+                label_info.Content = "";
+            }
+            else
+            {
+                b_101.Background = Brushes.Red;
+                label_info.Content = "Комната свободна";
+            }
+            
 
         }
     }
@@ -131,6 +141,7 @@ namespace WPF_HotWell
                 DT.Add(temp);
             }
         }
+        
     }
 
 
@@ -139,7 +150,12 @@ namespace WPF_HotWell
     {
         //? вынести колекция в стаитчный класс и сделать глобальной переменной
         static public List<camper> list_campers = new List<camper>();
-
+        static public bool find_nuber_room(int num)
+        { /*Поиск по комнте*/
+            foreach (camper tmp in campers.list_campers)
+                if (tmp.if_nuber_it(num)) return true; /*Здесь кто-то живет*/
+            return false;
+        }
 
     }
 
