@@ -116,75 +116,75 @@ namespace WPF_HotWell
            * и выводит инфомрацию в лейб, если живет красный цвет и информацию о жильце*/
 
             campers.current_room = 101;
-            obrabotka_komnat();
+            obrabotka_komnat(b_101);
         }
         private void B_102_Click(object sender, RoutedEventArgs e)
         {
             campers.current_room = 102;
-            obrabotka_komnat();
+            obrabotka_komnat(b_102);
         }
-        private void B_103_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 103;
-            obrabotka_komnat();
-        }
-        private void B_104_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 104;
-            obrabotka_komnat();
-        }
-        private void B_105_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 105;
-            obrabotka_komnat();
-        }
-        private void B_106_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 106;
-            obrabotka_komnat();
-        }
-        private void B_201_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 201;
-            obrabotka_komnat();
-        }
-        private void B_202_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 202;
-            obrabotka_komnat();
-        }
-        private void B_203_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 203;
-            obrabotka_komnat();
-        }
-        private void B_204_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 204;
-            obrabotka_komnat();
-        }
-        private void B_205_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 205;
-            obrabotka_komnat();
-        }
-        private void B_206_Click(object sender, RoutedEventArgs e)
-        {
-            campers.current_room = 206;
-            obrabotka_komnat();
-        }
+        //private void B_103_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 103;
+        //    obrabotka_komnat();
+        //}
+        //private void B_104_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 104;
+        //    obrabotka_komnat();
+        //}
+        //private void B_105_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 105;
+        //    obrabotka_komnat();
+        //}
+        //private void B_106_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 106;
+        //    obrabotka_komnat();
+        //}
+        //private void B_201_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 201;
+        //    obrabotka_komnat();
+        //}
+        //private void B_202_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 202;
+        //    obrabotka_komnat();
+        //}
+        //private void B_203_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 203;
+        //    obrabotka_komnat();
+        //}
+        //private void B_204_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 204;
+        //    obrabotka_komnat();
+        //}
+        //private void B_205_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 205;
+        //    obrabotka_komnat();
+        //}
+        //private void B_206_Click(object sender, RoutedEventArgs e)
+        //{
+        //    campers.current_room = 206;
+        //    obrabotka_komnat();
+        //}
 
 
-        private void obrabotka_komnat()
+        private void obrabotka_komnat(Button b)
         {/*Повторяющаяяся часть для всех комнат*/
             if (campers.find_nuber_room(campers.current_room.Value))
             {
-                b_101.Background = Brushes.Red;
+                b.Background = Brushes.Red;
                 label_info.Content = campers.find_nuber_room_STR(campers.current_room.Value);
             }
             else
             {
-                b_101.Background = Brushes.Yellow;
+                b.Background = Brushes.Yellow;
                 label_info.Content = $"Комната {campers.current_room.Value} свободна";
             }
         }
