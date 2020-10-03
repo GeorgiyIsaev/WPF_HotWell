@@ -113,14 +113,14 @@ namespace WPF_HotWell
           /*Что я хочу: если никто там не живет то при нажатии меняется на желтый желтый цвет,
            * и выводит инфомрацию в лейб, если живет красный цвет и информацию о жильце*/
 
-            if (campers.find_nuber_room(Convert.ToInt32(input_countDay.Text))
+            if (campers.find_nuber_room(101))
             {
                 b_101.Background = Brushes.Red;
                 label_info.Content = "";
             }
             else
-            {
-                b_101.Background = Brushes.Red;
+            {               
+                b_101.Background = Brushes.Yellow;
                 label_info.Content = "Комната свободна";
             }
             
