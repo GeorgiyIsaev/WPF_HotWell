@@ -207,7 +207,7 @@ namespace WPF_HotWell
             b_105.Background = campers.find_nuber_room(105) ? Brushes.Red : Brushes.White;
             b_106.Background = campers.find_nuber_room(106) ? Brushes.Red : Brushes.White;
 
-            b_201.Background = campers.find_nuber_room(201) ? Brushes.Red : Brushes.White;
+            b_201.Background = campers.find_nuber_room(201) ? Brushes.Red : Brushes.White; 
             b_202.Background = campers.find_nuber_room(202) ? Brushes.Red : Brushes.White;
             b_203.Background = campers.find_nuber_room(203) ? Brushes.Red : Brushes.White;
             b_204.Background = campers.find_nuber_room(204) ? Brushes.Red : Brushes.White;
