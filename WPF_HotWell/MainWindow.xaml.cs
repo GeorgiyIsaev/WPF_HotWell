@@ -69,7 +69,7 @@ namespace WPF_HotWell
                  * условно всегда будит только одна сегодняшняя*/
                 DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
 
-                temp.record_DataTime(now_it, now_it.AddDays(Convert.ToInt32(input_countDay.Text)));
+                temp.record_DataTime(now_it, now_it.AddDays(Convert.ToInt32(input_countDay.Text))); 
 
             }
             else
