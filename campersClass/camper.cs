@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace campersClass
 {
@@ -24,6 +25,14 @@ namespace campersClass
             foreach (camper tmp in campers.list_campers)
                 if (tmp.if_nuber_it(num)) return tmp.ToString(); /*Здесь кто-то живет*/
             return "Ни чего не найдено";
+        }
+        static public void save()
+        {
+            using (var file = new StreamWriter("info.log"))
+            {
+                foreach (camper tmp in campers.list_campers)
+                    file.WriteLine(tmp.file_save());
+            }
         }
     }
 
@@ -84,6 +93,6 @@ namespace campersClass
             temp += $"{data_output}\n";
             return temp;  
               
-        }
+        }       
     }
 }
