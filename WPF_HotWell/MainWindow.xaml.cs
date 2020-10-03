@@ -17,24 +17,24 @@ namespace WPF_HotWell
         string info_message;
         public Info_deleg info_deleg;
         public MainWindow()
-        {            
+        {
             InitializeComponent();
             recet_full();
             //InitializeListDate();
         }
         private void InitializeListDate()
         {
-            Data_listBox DT = new Data_listBox(); 
+            Data_listBox DT = new Data_listBox();
             for (int i = 0; i < 7; i++)
                 data_list.Items.Add(DT.DT[i]);
-            /*Окей я пока не знаю как програмно передать даты при запуске приложения,
+            /*Окей я пока не знаю, как программно передать даты при запуске приложения,
              * отложу это на потом*/
         }
 
         private void But_Cler_Click(object sender, RoutedEventArgs e)
         {
             recet_full();
-            
+
             label_info.Content = "";
             input_name.Text = "";
             input_famile.Text = "";
@@ -43,11 +43,11 @@ namespace WPF_HotWell
             input_countDay.Text = "";
             add_futon.IsChecked = false;
             add_food.IsChecked = false;
-            label_info.Content = "";                  
+            label_info.Content = "";
         }
         private void recet_full()
         {
-            info_deleg = messege; //довбвил метод для делегата
+            info_deleg = messege; //добавил метод для делегата
             //info_message = "";
             campers.read(); // прочесть из файла
             /*Возвращает прежние цвета полей*/
@@ -56,35 +56,33 @@ namespace WPF_HotWell
             input_father.Background = Brushes.White;
             input_tel.Background = Brushes.White;
             input_countDay.Background = Brushes.White;
-            calor_Room_Back(); //востановит цвета кнопкам   
+            calor_Room_Back(); //восстановит цвета кнопкам   
         }
 
         private void But_input_Click(object sender, RoutedEventArgs e)
         {
             recet_full();
-            if (if_input_full()) 
+            if (if_input_full())
             {
                 camper temp = new camper();
                 temp.record_FIO_T(input_name.Text, input_famile.Text, input_father.Text, input_tel.Text);
-                /*В чем разница между bool? и просто bool? почему я не могу сразу передать значеие*/
+                /*В чем разница между bool? и просто bool? почему я не могу сразу передать значение*/
                 temp.record_room(campers.current_room.Value, add_futon.IsChecked == true, add_food.IsChecked == true);
-                /*Не получается програмно в лсит бокс передать даты, 
-                 * условно всегда будит только одна датат - сегодняшняя*/
-                
-                //DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);  
+                /*Не получается программное в лист бокс передать даты, 
+                 * условно всегда будит только одна дата - сегодняшняя*/
+
                 int count_num = Convert.ToInt32(input_countDay.Text);
-                label_info.Content = $"Дата {DateTime.Now} Число: {count_num}"; /*для проверки */
                 temp.record_DataTime(DateTime.Now, DateTime.Now.AddDays(count_num));
-                              
+
                 campers.list_campers.Add(temp);
                 label_info.Content = campers.find_nuber_room_STR(campers.current_room.Value);
-                campers.save();               
+                campers.save();
             }
             else
             {
                 MessageBox.Show(info_message);
                 info_message = "";
-            } 
+            }
         }
         private void messege(string mes)
         {
@@ -95,22 +93,22 @@ namespace WPF_HotWell
         {
             List<bool> false_if = new List<bool>();
             /*Проверка что все записи присутствуют перед началом записи*/
-            if (input_name.Text == "") { info_deleg?.Invoke("Не заполнено поле - Имя\n");  input_name.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_name.Text == "") { info_deleg?.Invoke("Не заполнено поле - Имя\n"); input_name.Background = Brushes.Yellow; false_if.Add(false); }
             if (input_famile.Text == "") { info_deleg?.Invoke("Не заполнено поле - Фамилия\n"); input_famile.Background = Brushes.Yellow; false_if.Add(false); }
             if (input_father.Text == "") { info_deleg?.Invoke("Не заполнено поле - Отчество\n"); input_father.Background = Brushes.Yellow; false_if.Add(false); }
             if (input_tel.Text == "") { info_deleg?.Invoke("Не заполнено поле - Телефон\n"); input_tel.Background = Brushes.Yellow; false_if.Add(false); }
-            if (input_countDay.Text == "") { info_deleg?.Invoke("Не ввдено колличество дней проживания\n"); input_countDay.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_countDay.Text == "") { info_deleg?.Invoke("Не введено количество дней проживания\n"); input_countDay.Background = Brushes.Yellow; false_if.Add(false); }
             /*Короче для проверки на число нашел вот такую замудренную конструкцию*/
             int num = 0;
-            if(!int.TryParse(input_countDay.Text, out num))
+            if (!int.TryParse(input_countDay.Text, out num))
             {
-                info_deleg?.Invoke("Колличество дней проживания должно быть числом!\n");
+                info_deleg?.Invoke("Количество дней проживания должно быть числом!\n");
                 input_countDay.Background = Brushes.Yellow; false_if.Add(false);
-            }        
+            }
 
             /*Проверка занятости комнаты*/
-            if (campers.current_room == null) { info_deleg?.Invoke("Не выбрана комната для заселния\n"); false_if.Add(false); }
-            if (campers.current_room != null && campers.find_nuber_room(campers.current_room.Value)) { info_deleg?.Invoke("В выбранной команте уже кто-то живет\n"); false_if.Add(false); }
+            if (campers.current_room == null) { info_deleg?.Invoke("Не выбрана комната для заселения\n"); false_if.Add(false); }
+            if (campers.current_room != null && campers.find_nuber_room(campers.current_room.Value)) { info_deleg?.Invoke("В выбранной комнате уже кто-то живет\n"); false_if.Add(false); }
 
             foreach (bool if_it in false_if)
                 if (if_it == false) return false;
@@ -120,8 +118,8 @@ namespace WPF_HotWell
 
         private void B_101_Click(object sender, RoutedEventArgs e)
         { /*Это для каждой кнопки получается придется обработчик делать... */
-          /*Что я хочу: если никто там не живет то при нажатии меняется на желтый желтый цвет,
-           * и выводит инфомрацию в лейб, если живет красный цвет и информацию о жильце*/
+          /*Что я хочу: если никто там не живет, то при нажатии меняется на желтый цвет,
+           * и выводит информацию в лейб, если живет красный цвет и информацию о жильце*/
 
             campers.current_room = 101;
             obrabotka_komnat(b_101);
@@ -130,7 +128,7 @@ namespace WPF_HotWell
         {
             campers.current_room = 102;
             obrabotka_komnat(b_102);
-            
+
         }
         private void B_103_Click(object sender, RoutedEventArgs e)
         {
@@ -185,7 +183,7 @@ namespace WPF_HotWell
 
 
         private void obrabotka_komnat(Button b)
-        {/*Повторяющаяяся часть для всех комнат*/
+        {/*Повторяющаяся часть для всех комнат*/
             calor_Room_Back();
             if (campers.find_nuber_room(campers.current_room.Value))
             {
@@ -200,7 +198,7 @@ namespace WPF_HotWell
         }
 
         private void calor_Room_Back()
-        { /*Этот метод должен востанавливать цвет всем комнатам-кнопкам*/
+        { /*Этот метод должен восстанавливать цвет всем комнатам-кнопкам*/
           /*А какой цвет был изначально на кнопке.. ЛОЛ??*/
             b_101.Background = campers.find_nuber_room(101) ? Brushes.Red : Brushes.White;
             b_102.Background = campers.find_nuber_room(102) ? Brushes.Red : Brushes.White;
@@ -224,22 +222,21 @@ namespace WPF_HotWell
 
 
     class Data_listBox
-    {      
+    {
         public List<DateTime> DT;
         public Data_listBox()
         {
             DT = new List<DateTime>();
-            for(int i =0; i<7; i++)
+            for (int i = 0; i < 7; i++)
             {
-                /*Не знаю как еще по иному можно записать сегоднюшнюю дату в дату*/
-                DateTime temp = new DateTime(DateTime.Now.Day, DateTime.Now.Month , DateTime.Now.Year);
+                /*Не знаю, как еще по-иному можно записать сегодняшнюю дату в дату*/
+                DateTime temp = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
                 temp.AddDays(i);
                 DT.Add(temp);
             }
-        }        
+        }
     }
-
-
-
-    
 }
+
+
+

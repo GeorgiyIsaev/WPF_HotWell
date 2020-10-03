@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,22 +10,21 @@ namespace campersClass
 {
     public static class campers
     {
-        static public int? current_room; /*Сюда буду записывать тикущую выбранную комнату*/
+        static public int? current_room; /*Сюда буду записывать текущую выбранную комнату*/
         /*int?  что бы инту можно было присвоит null*/
 
-        //? вынести колекция в стаитчный класс и сделать глобальной переменной
         static public List<camper> list_campers = new List<camper>();
         static public bool find_nuber_room(int num)
-        { /*Поиск по комнте*/
+        { /*Поиск по комнате*/
             foreach (camper tmp in campers.list_campers)
                 if (tmp.if_nuber_it(num)) return true; /*Здесь кто-то живет*/
             return false;
         }
         static public string find_nuber_room_STR(int num)
-        { /*Поиск по комнте - все также только возвращаем строку*/
+        { /*Поиск по комнате - все также только возвращаем строку*/
             foreach (camper tmp in campers.list_campers)
                 if (tmp.if_nuber_it(num)) return tmp.ToString(); /*Здесь кто-то живет*/
-            return "Ни чего не найдено";
+            return "Ничего не найдено";
         }
         static public void save()
         {
@@ -47,7 +47,7 @@ namespace campersClass
                     /*Парсим ФИО*/
                     if (temp_str == null) break;
                     string[] stroka = temp_str.Split(":".ToCharArray());
-                    /*Не знаю как сделать проверку в C# на конец файла в интернете не нашел сделал так*/
+                    /*Не знаю, как сделать проверку в C# на конец файла, в интернете не нашел, сделал так*/
                     if (stroka.Length < 2) break;
 
                     temp.record_FIO_T(stroka[0], stroka[1], stroka[2], stroka[3]);
@@ -63,11 +63,10 @@ namespace campersClass
                     temp.record_DataTime(d1, d2);
                     list_campers.Add(temp);
                 }
-            }         
+            }
         }
     }
-
-
+    
     public class camper
     {
         string name;
@@ -87,7 +86,7 @@ namespace campersClass
             if (if_futon || if_food)
             {
                 temp += "Заказал:";
-                if (if_futon) temp += " Допольнительный футон;";
+                if (if_futon) temp += " Дополнительный футон;";
                 if (if_food) temp += " Еду в номер;";
                 temp += "\n";
             }
@@ -110,8 +109,8 @@ namespace campersClass
         }
         public bool if_nuber_it(int num)
         {
-            /*Проверка живет ли кто то в этой комнате, 
-             потом можно улчшить живет ли кто в комнате на эту дату*/
+            /*Проверка живет ли кто-то в этой комнате, 
+             потом можно улучшить живет ли кто в комнате на эту дату*/
 
             return number_room == num;
         }
@@ -121,8 +120,9 @@ namespace campersClass
             temp += $"{number_room}:{if_futon}:{if_food}\n";
             temp += $"{data_input}\n";
             temp += $"{data_output}";
-            return temp;  
-              
-        }       
+            return temp;
+
+        }
     }
 }
+
