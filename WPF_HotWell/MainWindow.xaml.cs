@@ -66,7 +66,7 @@ namespace WPF_HotWell
 
         private void But_input_Click(object sender, RoutedEventArgs e)
         {
-            if (if_input_full())
+            if (if_input_full()) 
             {
                 camper temp = new camper();
                 temp.record_FIO_T(input_name.Text, input_famile.Text, input_father.Text, input_tel.Text);
