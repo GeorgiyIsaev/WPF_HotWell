@@ -72,8 +72,8 @@ namespace WPF_HotWell
                 //DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
 
                 int count_num = Convert.ToInt32(input_countDay.Text);
-                label_info.Content = $"Дата Число: {count_num}";/*{now_it} */
-                //temp.record_DataTime(now_it, now_it.AddDays(count_num)); 
+                label_info.Content = $"Дата {DateTime.Now} Число: {count_num}";/*{now_it} */
+                temp.record_DataTime(DateTime.Now, DateTime.Now.AddDays(count_num)); 
 
             }
             else
