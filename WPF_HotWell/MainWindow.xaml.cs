@@ -54,7 +54,7 @@ namespace WPF_HotWell
             }
             else
             {
-                MessageBox.Show("Неполные данные");
+                MessageBox.Show("Неполные данные"); 
             }
             
             /*if(проверка всех введений), если нет сменим цвет кнопки*/
