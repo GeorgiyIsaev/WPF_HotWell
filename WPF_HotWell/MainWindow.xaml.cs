@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -73,7 +74,10 @@ namespace WPF_HotWell
                 int count_num = Convert.ToInt32(input_countDay.Text);
                 label_info.Content = $"Дата {DateTime.Now} Число: {count_num}"; /*для проверки */
                 temp.record_DataTime(DateTime.Now, DateTime.Now.AddDays(count_num));
-
+                using (var file = new StreamWriter("info.log", true))
+                {
+                    file.WriteLine(temp.file_save());
+                }                
                 campers.list_campers.Add(temp);
                 label_info.Content = campers.find_nuber_room_STR(campers.current_room.Value);
             }

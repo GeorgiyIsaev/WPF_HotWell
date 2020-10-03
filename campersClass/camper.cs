@@ -46,13 +46,13 @@ namespace campersClass
                 $"Контактный Телефон: {telefon}\n";
             if (if_futon || if_food)
             {
-                temp += "Заказал";
+                temp += "Заказал:";
                 if (if_futon) temp += " Допольнительный футон;";
-                if (if_futon) temp += " Еду в номер;";
+                if (if_food) temp += " Еду в номер;";
                 temp += "\n";
             }
             temp += $"Дата засиления: {data_input}, выселения {data_output}\n";
-            temp += $"Номер будит занят еще {data_output - data_input} дней.";
+            temp += $"Номер будит занят еще {(data_output - data_input).Days} дней.";
             return temp;
         }
         /*Запись данных в структуру*/
@@ -74,6 +74,16 @@ namespace campersClass
              потом можно улчшить живет ли кто в комнате на эту дату*/
 
             return number_room == num;
+        }
+        public string file_save()
+        {
+            string temp = $"{name}: { famile}: {name_father}\n";
+            temp += $"{number_room}: {telefon}\n";
+            temp += $"{if_futon}: {if_food}\n";
+            temp += $"{data_input}\n";
+            temp += $"{data_output}\n";
+            return temp;  
+              
         }
     }
 }
