@@ -31,7 +31,7 @@ namespace WPF_HotWell
         }
         private void InitializeListDate()
         {
-            Data_listBox DT = new Data_listBox();
+            Data_listBox DT = new Data_listBox(); 
             for (int i = 0; i < 7; i++)
                 data_list.Items.Add(DT.DT[i]);
             /*Окей я пока не знаю как програмно передать даты при запуске приложения,
