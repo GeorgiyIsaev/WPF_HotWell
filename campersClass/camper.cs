@@ -9,10 +9,11 @@ using System.IO;
 namespace campersClass
 {
     public delegate void record_info(string str);
+    public delegate void delegat_na_odin_raz();
     public static class campers
     {
         public static record_info log_info;
-
+        public static delegat_na_odin_raz one_read_delegat = read;
         static public int? current_room; /*Сюда буду записывать текущую выбранную комнату*/
         /*int?  что бы инту можно было присвоит null*/
 
@@ -73,6 +74,7 @@ namespace campersClass
                     }
                     else
                     {
+                        log_info?.Invoke($"Попытка пердать в прогрмму клона постоялца из файла");
                         /*Кастыль, так как не могу прикратить лишнее чтение.. или могу с помощью делегата*/
                         temp_str = sr.ReadLine();                       
                         temp_str = sr.ReadLine();

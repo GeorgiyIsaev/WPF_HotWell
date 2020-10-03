@@ -50,8 +50,10 @@ namespace WPF_HotWell
         {
             campers.log_info = record_log_file; //правильный делегат получает метод логирования, логирование событий есть как в главном файле так и файле подключаемой библиотеки
             info_deleg = messege; //добавил метод для делегата
-            //info_message = "";
-            campers.read(); // прочесть из файла
+                                  //info_message = "";
+
+            campers.one_read_delegat?.Invoke();// прочесть из файла с помощью делегата
+            campers.one_read_delegat = null; //обнулить делегат что бы больше не читать метод после запуска программы, фига я умный
             /*Возвращает прежние цвета полей*/
             input_name.Background = Brushes.White;
             input_famile.Background = Brushes.White;
