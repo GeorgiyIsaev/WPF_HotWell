@@ -1,0 +1,49 @@
+﻿<Window x:Class="WPF_HotWell.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_HotWell"
+        mc:Ignorable="d"
+        Title="Отель на горячих источниках =)" Height="510" Width="545">
+    <Grid>
+        <Label Content="Регистрация отдыхающих" Height="44" Margin="31,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" FontFamily="Vrinda" Background="Transparent" Foreground="#FF360CA6" FontStretch="Condensed" TextOptions.TextHintingMode="Fixed" HorizontalAlignment="Left" Width="322"/>
+        <!--Основная информация-->
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,61,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119"><Run Text="Имя"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name ="input_name" HorizontalAlignment="Left" Height="24" Margin="137,59,0,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="385"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,88,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119" Text="Фамилия:"/>
+        <TextBox x:Name ="input_famile" HorizontalAlignment="Left" Height="27" Margin="137,83,0,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="385"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,115,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119"><Run Text="Отчество"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name ="input_father" HorizontalAlignment="Left" Height="27" Margin="137,110,0,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="385"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,142,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119"><Run Text="Моб. т"/><Run Text="елефон"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name ="input_tel" HorizontalAlignment="Left" Height="27" Margin="137,137,0,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="385"/>
+        <!--Дополнительная информация отмечается галочками-->
+        <CheckBox x:Name ="add_futon" Content="Дополнительный футон" HorizontalAlignment="Left" Margin="10,184,0,0" FontSize="16"  VerticalAlignment="Top" Height="25" Width="219"/>
+        <CheckBox x:Name ="add_food" Content="Еда в номер" HorizontalAlignment="Left" Margin="265,184,0,0" FontSize="16"  VerticalAlignment="Top" Height="25" Width="219"/>
+        <!-- Дата и номер засиления -->
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,214,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="132"><Run Text="Дата заисиления"/><Run Text=":"/></TextBlock>
+        <ComboBox x:Name ="data_list"  HorizontalAlignment="Left" Margin="147,214,0,0" VerticalAlignment="Top" Width="148"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="300,214,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="143" Text="Колличество дней:"/>
+        <TextBox x:Name ="input_countDay" HorizontalAlignment="Left" Height="27" Margin="443,209,0,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" RenderTransformOrigin="5.469,-1.818"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,241,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="143"><Run Text="Номер "/><Run Text="команты"/><Run Text=":"/></TextBlock>
+        <Button Content="101" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="102" HorizontalAlignment="Left" Margin="85,268,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="103" HorizontalAlignment="Left" Margin="160,268,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="104" HorizontalAlignment="Left" Margin="235,268,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="105" HorizontalAlignment="Left" Margin="310,268,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="106" HorizontalAlignment="Left" Margin="385,268,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="201" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="202" HorizontalAlignment="Left" Margin="85,290,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="203" HorizontalAlignment="Left" Margin="160,290,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="204" HorizontalAlignment="Left" Margin="235,290,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="205" HorizontalAlignment="Left" Margin="310,290,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="206" HorizontalAlignment="Left" Margin="385,290,0,0" VerticalAlignment="Top" Width="75"/>
+        <!-- Информация о номере -->
+        <Label x:Name ="label_info" Content="" HorizontalAlignment="Left" Height="111" Margin="10,335,0,0" VerticalAlignment="Top" Width="512" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="Black" Foreground="#FF040000" Background="#FF76EC4A"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,313,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="300"><Run Text="Информация о т"/><Run Text="е"/><Run Text="кущему номере"/><Run Text=":"/></TextBlock>
+        <!-- Контролы -->
+        <Button x:Name ="but_cler" Content="Очистить все поля" HorizontalAlignment="Left" Margin="10,446,0,0" VerticalAlignment="Top" Width="185" Click="But_Cler_Click"/>
+        <Button x:Name ="but_input" Content="Заселить" HorizontalAlignment="Left" Margin="337,446,0,0" VerticalAlignment="Top" Width="185" Click="But_input_Click"/>
+
+    </Grid>
+</Window>
