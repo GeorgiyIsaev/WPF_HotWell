@@ -37,16 +37,45 @@ namespace WPF_HotWell
             input_countDay.Text = "";
             add_futon.IsChecked = false;
             add_food.IsChecked = false;
+
+            /*Возвращает прежние цвета полей*/
+            input_name.Background = Brushes.White;
+            input_famile.Background = Brushes.White;
+            input_father.Background = Brushes.White;
+            input_tel.Background = Brushes.White;
+            input_countDay.Background = Brushes.White;
         }
 
         private void But_input_Click(object sender, RoutedEventArgs e)
         {
+            if (if_input_full())
+            {
+                /*Выполняется запись гостя в лист*/
+            }
+            else
+            {
+                MessageBox.Show("Неполные данные");
+            }
+            
             /*if(проверка всех введений), если нет сменим цвет кнопки*/
+            /*Ели все ок записываем данные в структуру, записывать буду методом а затем обект кидать в лист*/
 
+            //List<camper> list_campers = new List<camper>();
+            //list_campers.Add();
 
-            List<camper> list_campers = new List<camper>();
-            list_campers.Add();
+        }
+        private bool if_input_full()
+        {
+            /*Проверка что все записи присутствуют перед началом записи*/
+            if (input_name.Text == "") { input_name.Background = Brushes.Yellow; return false; }
+            if (input_famile.Text == "") { input_famile.Background = Brushes.Yellow; return false; }
+            if (input_father.Text == "") { input_father.Background = Brushes.Yellow; return false; }
+            if (input_tel.Text == "") { input_tel.Background = Brushes.Yellow; return false; }
+            if (input_countDay.Text == "") { input_countDay.Background = Brushes.Yellow; return false; }
 
+            /*Надо добавить проверка что сило дне это число*/
+            /*Еще нужно добавать, что выбрана конмната - отдельный метод*/
+            return true;
         }
     }
 
@@ -84,6 +113,19 @@ namespace WPF_HotWell
             temp += $"Дата засиления: {data_input}, выселения {data_output}\n";
             temp += $"Номер будит занят еще {data_output - data_input} дней.";
             return temp;
+        }
+        /*Запись данных в структуру*/
+        public void record_FIO_T(string n, string f, string nfather, string tel)
+        {
+            name = n; famile = f; name_father = nfather; telefon = tel;
+        }
+        public void record_room(int n, bool futon, bool food)
+        {
+            number_room= n; if_futon = futon; if_food = food;
+        }
+        public void record_DataTime (DateTime begin, DateTime end)
+        {
+            data_input = begin; data_output = end;
         }
     }
 
