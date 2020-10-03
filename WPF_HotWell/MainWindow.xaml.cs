@@ -34,7 +34,7 @@ namespace WPF_HotWell
         private void But_Cler_Click(object sender, RoutedEventArgs e)
         {
             recet_full();
-            info_deleg = messege; //довбвил метод для делегата
+            
             label_info.Content = "";
             input_name.Text = "";
             input_famile.Text = "";
@@ -47,6 +47,7 @@ namespace WPF_HotWell
         }
         private void recet_full()
         {
+            info_deleg = messege; //довбвил метод для делегата
             //info_message = "";
             campers.read(); // прочесть из файла
             /*Возвращает прежние цвета полей*/
