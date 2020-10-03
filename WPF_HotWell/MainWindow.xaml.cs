@@ -70,7 +70,9 @@ namespace WPF_HotWell
                 //DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
                 int count_num = Convert.ToInt32(input_countDay.Text);
                 label_info.Content = $"Дата {DateTime.Now} Число: {count_num}"; /*для проверки */
-                temp.record_DataTime(DateTime.Now, DateTime.Now.AddDays(count_num)); 
+                temp.record_DataTime(DateTime.Now, DateTime.Now.AddDays(count_num));
+
+                campers.list_campers.Add(temp);
 
             }
             else
@@ -111,7 +113,7 @@ namespace WPF_HotWell
             /*Что я хочу: если никто там не живет то при нажатии меняется на желтый желтый цвет,
              * и выводит инфомрацию в лейб, если живет красный цвет и информацию о жильце*/
 
-            if()
+           // if()
 
         }
     }
@@ -137,6 +139,7 @@ namespace WPF_HotWell
     {
         //? вынести колекция в стаитчный класс и сделать глобальной переменной
         static public List<camper> list_campers = new List<camper>();
+
 
     }
 
