@@ -1,5 +1,6 @@
 ﻿using campersClass;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -47,6 +48,7 @@ namespace WPF_HotWell
         }
         private void recet_full()
         {
+            campers.log_info = record_log_file; //правильный делегат получает метод логирования, логирование событий есть как в главном файле так и файле подключаемой библиотеки
             info_deleg = messege; //добавил метод для делегата
             //info_message = "";
             campers.read(); // прочесть из файла
@@ -90,6 +92,14 @@ namespace WPF_HotWell
         {
             info_message += mes;
         }
+        private void record_log_file(string messege)
+        {
+            using (var file = new StreamWriter("log_info.txt", true))
+            {
+                file.WriteLine($"{DateTime.Now:F} - [INFO] : {messege}");
+            }      
+        }
+
 
         private bool if_input_full()
         {
