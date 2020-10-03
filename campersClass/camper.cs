@@ -59,14 +59,24 @@ namespace campersClass
                     temp_str = sr.ReadLine();
                     stroka = temp_str.Split(":".ToCharArray());
                     temp.record_room(Convert.ToInt32(stroka[0]), stroka[1] == "True", stroka[2] == "True");
+                    /*Проверка что, такой постоялец уже есть*/
+                    if (find_nuber_room(Convert.ToInt32(stroka[0]))) {
+                        temp_str = sr.ReadLine();
+                        DateTime d1 = DateTime.Parse(temp_str);
+                        temp_str = sr.ReadLine();
+                        DateTime d2 = DateTime.Parse(temp_str);
+                        temp.record_DataTime(d1, d2);
 
-                    temp_str = sr.ReadLine();
-                    DateTime d1 = DateTime.Parse(temp_str);
-                    temp_str = sr.ReadLine();
-                    DateTime d2 = DateTime.Parse(temp_str); 
-                    temp.record_DataTime(d1, d2);
-                    list_campers.Add(temp);
-                    log_info?.Invoke($"Данные из файла temp.txt успешно прочитаны");
+
+                        list_campers.Add(temp);
+                        log_info?.Invoke($"Данные постоялца перенесены из файла в приложеие, добавлен\n : {temp}");
+                    }
+                    else
+                    {
+                        /*Кастыль, так как не могу прикратить лишнее чтение.. или могу с помощью делегата*/
+                        temp_str = sr.ReadLine();                       
+                        temp_str = sr.ReadLine();
+                    }
                 }
             }
         }
