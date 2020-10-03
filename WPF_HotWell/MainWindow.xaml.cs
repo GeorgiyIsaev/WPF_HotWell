@@ -178,6 +178,7 @@ namespace WPF_HotWell
 
         private void obrabotka_komnat(Button b)
         {/*Повторяющаяяся часть для всех комнат*/
+            calor_Room_Back();
             if (campers.find_nuber_room(campers.current_room.Value))
             {
                 b.Background = Brushes.Red;
@@ -188,6 +189,25 @@ namespace WPF_HotWell
                 b.Background = Brushes.Yellow;
                 label_info.Content = $"Комната {campers.current_room.Value} свободна";
             }
+        }
+
+        private void calor_Room_Back()
+        { /*Этот метод должен востанавливать цвет все другим комнатам-кнопкам*/
+          /*А какой цвет был изначально на кнопке??*/
+            b_101.Background = campers.find_nuber_room(101) ? Brushes.Red : Brushes.White;
+            b_102.Background = campers.find_nuber_room(102) ? Brushes.Red : Brushes.White;
+            b_103.Background = campers.find_nuber_room(103) ? Brushes.Red : Brushes.White;
+            b_104.Background = campers.find_nuber_room(104) ? Brushes.Red : Brushes.White;
+            b_105.Background = campers.find_nuber_room(105) ? Brushes.Red : Brushes.White;
+            b_106.Background = campers.find_nuber_room(106) ? Brushes.Red : Brushes.White;
+
+            b_201.Background = campers.find_nuber_room(201) ? Brushes.Red : Brushes.White;
+            b_202.Background = campers.find_nuber_room(202) ? Brushes.Red : Brushes.White;
+            b_203.Background = campers.find_nuber_room(203) ? Brushes.Red : Brushes.White;
+            b_204.Background = campers.find_nuber_room(204) ? Brushes.Red : Brushes.White;
+            b_205.Background = campers.find_nuber_room(205) ? Brushes.Red : Brushes.White;
+            b_206.Background = campers.find_nuber_room(206) ? Brushes.Red : Brushes.White;
+            /*Короче где нет жильцов белые, где уже есть красные*/
         }
     }
     class Data_listBox
@@ -250,8 +270,8 @@ namespace WPF_HotWell
             if (if_futon || if_food)
             {
                 temp += "Заказал";
-                if (if_futon) temp += " Допольнительный футон;\n";
-                if (if_futon) temp += " Еду в номер;\n";
+                if (if_futon) temp += " Допольнительный футон;";
+                if (if_futon) temp += " Еду в номер;";
                 temp += "\n";
             }
             temp += $"Дата засиления: {data_input}, выселения {data_output}\n";

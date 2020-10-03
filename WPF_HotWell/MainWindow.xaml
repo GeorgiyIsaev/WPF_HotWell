@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_HotWell"
         mc:Ignorable="d"
-        Title="Отель на горячих источниках =)" Height="510" Width="545">
+        Title="Отель на горячих источниках =)" Height="536" Width="545">
     <Grid>
         <Label Content="Регистрация отдыхающих" Height="44" Margin="31,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" FontFamily="Vrinda" Background="Transparent" Foreground="#FF360CA6" FontStretch="Condensed" TextOptions.TextHintingMode="Fixed" HorizontalAlignment="Left" Width="322"/>
         <!--Основная информация-->
@@ -40,11 +40,11 @@
         <Button x:Name ="b_205" Content="205" HorizontalAlignment="Left" Margin="310,290,0,0" VerticalAlignment="Top" Width="75" Click="B_205_Click"/>
         <Button x:Name ="b_206" Content="206" HorizontalAlignment="Left" Margin="385,290,0,0" VerticalAlignment="Top" Width="75" Click="B_206_Click"/>
         <!-- Информация о номере -->
-        <Label x:Name ="label_info" Content="" HorizontalAlignment="Left" Height="111" Margin="10,335,0,0" VerticalAlignment="Top" Width="512" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="Black" Foreground="#FF040000" Background="#FF76EC4A"/>
+        <Label x:Name ="label_info" Content="" HorizontalAlignment="Left" Height="134" Margin="10,335,0,0" VerticalAlignment="Top" Width="512" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="Black" Foreground="#FF040000" Background="#FF76EC4A"/>
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,313,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="300"><Run Text="Информация о т"/><Run Text="е"/><Run Text="кущему номере"/><Run Text=":"/></TextBlock>
         <!-- Контролы -->
-        <Button x:Name ="but_cler" Content="Очистить все поля" HorizontalAlignment="Left" Margin="10,446,0,0" VerticalAlignment="Top" Width="185" Click="But_Cler_Click"/>
-        <Button x:Name ="but_input" Content="Заселить" HorizontalAlignment="Left" Margin="337,446,0,0" VerticalAlignment="Top" Width="185" Click="But_input_Click"/>
+        <Button x:Name ="but_cler" Content="Очистить все поля" HorizontalAlignment="Left" Margin="10,474,0,0" VerticalAlignment="Top" Width="185" Click="But_Cler_Click"/>
+        <Button x:Name ="but_input" Content="Заселить" HorizontalAlignment="Left" Margin="337,474,0,0" VerticalAlignment="Top" Width="185" Click="But_input_Click"/>
 
     </Grid>
 </Window>
