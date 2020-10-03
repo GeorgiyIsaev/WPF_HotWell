@@ -24,9 +24,10 @@ namespace WPF_HotWell
     public partial class MainWindow : Window
     {
         public MainWindow()
-        {
-           InitializeComponent();
-         //InitializeListDate();
+        {            
+            InitializeComponent();
+            recet_full();
+            //InitializeListDate();
         }
         private void InitializeListDate()
         {
@@ -39,6 +40,8 @@ namespace WPF_HotWell
 
         private void But_Cler_Click(object sender, RoutedEventArgs e)
         {
+            recet_full();
+
             label_info.Content = "";
             input_name.Text = "";
             input_famile.Text = "";
@@ -47,17 +50,18 @@ namespace WPF_HotWell
             input_countDay.Text = "";
             add_futon.IsChecked = false;
             add_food.IsChecked = false;
-            label_info.Content = "";
-
+            label_info.Content = "";                  
+        }
+        private void recet_full()
+        {
+            campers.read(); // прочесть из файла
             /*Возвращает прежние цвета полей*/
             input_name.Background = Brushes.White;
             input_famile.Background = Brushes.White;
             input_father.Background = Brushes.White;
             input_tel.Background = Brushes.White;
             input_countDay.Background = Brushes.White;
-
-            calor_Room_Back(); //востановит цвета кнопкам
-            campers.read();
+            calor_Room_Back(); //востановит цвета кнопкам   
         }
 
         private void But_input_Click(object sender, RoutedEventArgs e)
