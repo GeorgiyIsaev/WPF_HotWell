@@ -48,6 +48,7 @@ namespace WPF_HotWell
             input_countDay.Text = "";
             add_futon.IsChecked = false;
             add_food.IsChecked = false;
+            label_info.Content = "";
 
             /*Возвращает прежние цвета полей*/
             input_name.Background = Brushes.White;
@@ -67,9 +68,12 @@ namespace WPF_HotWell
                 temp.record_room(0, add_futon.IsChecked == true, add_food.IsChecked == true);
                 /*Не получается програмно в лсит бокс передать даты, 
                  * условно всегда будит только одна сегодняшняя*/
-                DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+                
+                //DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
 
-                temp.record_DataTime(now_it, now_it.AddDays(Convert.ToInt32(input_countDay.Text))); 
+                int count_num = Convert.ToInt32(input_countDay.Text);
+                label_info.Content = $"Дата Число: {count_num}";/*{now_it} */
+                //temp.record_DataTime(now_it, now_it.AddDays(count_num)); 
 
             }
             else
