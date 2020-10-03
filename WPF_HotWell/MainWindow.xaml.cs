@@ -73,7 +73,7 @@ namespace WPF_HotWell
                 temp.record_DataTime(DateTime.Now, DateTime.Now.AddDays(count_num));
 
                 campers.list_campers.Add(temp);
-                label_info.Content = campers.find_nuber_room_STR(101);
+                label_info.Content = campers.find_nuber_room_STR(campers.current_room.Value);
             }
             else
             {
@@ -100,10 +100,12 @@ namespace WPF_HotWell
             if(!int.TryParse(input_countDay.Text, out num))
             {
                 input_countDay.Background = Brushes.Yellow; return false;
-            }       
+            }
 
-            /*Надо добавить проверка что сило дне это число*/
-            /*Еще нужно добавать, что выбрана конмната - отдельный метод*/
+            /*Проверка занятости комнаты*/
+            if (campers.current_room == null) return false;
+            if (campers.find_nuber_room(campers.current_room.Value)) return false;
+
             return true;
         }
 
@@ -113,15 +115,15 @@ namespace WPF_HotWell
           /*Что я хочу: если никто там не живет то при нажатии меняется на желтый желтый цвет,
            * и выводит инфомрацию в лейб, если живет красный цвет и информацию о жильце*/
 
-            if (campers.find_nuber_room(101))
+            if (campers.find_nuber_room(campers.current_room.Value))
             {
                 b_101.Background = Brushes.Red;
-                label_info.Content = campers.find_nuber_room_STR(101);
+                label_info.Content = campers.find_nuber_room_STR(campers.current_room.Value);
             }
             else
             {               
                 b_101.Background = Brushes.Yellow;
-                label_info.Content = "Комната свободна";
+                label_info.Content = $"Комната {campers.current_room.Value} свободна";
             }
             
 
@@ -129,6 +131,7 @@ namespace WPF_HotWell
     }
     class Data_listBox
     {
+      
         public List<DateTime> DT;
         public Data_listBox()
         {
@@ -140,14 +143,16 @@ namespace WPF_HotWell
                 temp.AddDays(i);
                 DT.Add(temp);
             }
-        }
-        
+        }        
     }
 
 
 
     static class campers
     {
+        static public int? current_room; /*Сюда буду записывать тикущую выбранную комнату*/
+        /*int?  что бы инту можно было присвоит null*/
+
         //? вынести колекция в стаитчный класс и сделать глобальной переменной
         static public List<camper> list_campers = new List<camper>();
         static public bool find_nuber_room(int num)
