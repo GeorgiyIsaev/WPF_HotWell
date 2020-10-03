@@ -50,7 +50,8 @@ namespace WPF_HotWell
         {
             if (if_input_full())
             {
-                /*Выполняется запись гостя в лист*/
+                camper temp = new camper();
+                temp.record_FIO_T(input_name.Text, input_famile, input_father.Text, input_tel.Text);
             }
             else
             {
