@@ -24,7 +24,18 @@ namespace WPF_HotWell
     {
         public MainWindow()
         {
+            
+
             InitializeComponent();
+         //InitializeListDate();
+        }
+        private void InitializeListDate()
+        {
+            Data_listBox DT = new Data_listBox();
+            for (int i = 0; i < 7; i++)
+                data_list.Items.Add(DT.DT[i]);
+            /*Окей я пока не знаю как програмно передать даты при запуске приложения,
+             * отложу это на потом*/
         }
 
         private void But_Cler_Click(object sender, RoutedEventArgs e)
@@ -51,7 +62,15 @@ namespace WPF_HotWell
             if (if_input_full())
             {
                 camper temp = new camper();
-                temp.record_FIO_T(input_name.Text, input_famile, input_father.Text, input_tel.Text);
+                temp.record_FIO_T(input_name.Text, input_famile.Text, input_father.Text, input_tel.Text);
+                /*В чем разница между bool? и просто bool? почему я не могу сразу передать значеие*/
+                temp.record_room(0, add_futon.IsChecked == true, add_food.IsChecked == true);
+                /*Не получается програмно в лсит бокс передать даты, 
+                 * условно всегда будит только одна сегодняшняя*/
+                DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+
+                temp.record_DataTime(now_it, now_it.AddDays(Convert.ToInt32(input_countDay.Text)));
+
             }
             else
             {
@@ -73,12 +92,35 @@ namespace WPF_HotWell
             if (input_father.Text == "") { input_father.Background = Brushes.Yellow; return false; }
             if (input_tel.Text == "") { input_tel.Background = Brushes.Yellow; return false; }
             if (input_countDay.Text == "") { input_countDay.Background = Brushes.Yellow; return false; }
+            /*Короче для проверки на число нашел вот такую замудренную конструкцию*/
+            int num = 0;
+            if(!int.TryParse(input_countDay.Text, out num))
+            {
+                input_countDay.Background = Brushes.Yellow; return false;
+            }       
 
             /*Надо добавить проверка что сило дне это число*/
             /*Еще нужно добавать, что выбрана конмната - отдельный метод*/
             return true;
         }
     }
+    class Data_listBox
+    {
+        public List<DateTime> DT;
+        public Data_listBox()
+        {
+            DT = new List<DateTime>();
+            for(int i =0; i<7; i++)
+            {
+                /*Не знаю как еще по иному можно записать сегоднюшнюю дату в дату*/
+                DateTime temp = new DateTime(DateTime.Now.Day, DateTime.Now.Month , DateTime.Now.Year);
+                temp.AddDays(i);
+                DT.Add(temp);
+            }
+        }
+    }
+
+
 
     static class campers
     {
