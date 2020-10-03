@@ -109,8 +109,8 @@ namespace WPF_HotWell
             }        
 
             /*Проверка занятости комнаты*/
-            if (campers.current_room == null) { info_deleg?.Invoke("Невыбрана комната для заселния\n"); false_if.Add(false); }
-            if (campers.find_nuber_room(campers.current_room.Value)) { info_deleg?.Invoke("В выбранной команте уже кто-то живет\n"); false_if.Add(false); }
+            if (campers.current_room == null) { info_deleg?.Invoke("Не выбрана комната для заселния\n"); false_if.Add(false); }
+            if (campers.current_room != null && campers.find_nuber_room(campers.current_room.Value)) { info_deleg?.Invoke("В выбранной команте уже кто-то живет\n"); false_if.Add(false); }
 
             foreach (bool if_it in false_if)
                 if (if_it == false) return false;
