@@ -28,17 +28,17 @@
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,241,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="143"><Run Text="Номер "/><Run Text="команты"/><Run Text=":"/></TextBlock>
 
         <Button x:Name ="b_101" Content="101" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75" Click="B_101_Click"/>
-        <Button x:Name ="b_102" Content="102" HorizontalAlignment="Left" Margin="85,268,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_103" Content="103" HorizontalAlignment="Left" Margin="160,268,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_104" Content="104" HorizontalAlignment="Left" Margin="235,268,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_105" Content="105" HorizontalAlignment="Left" Margin="310,268,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_106" Content="106" HorizontalAlignment="Left" Margin="385,268,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_201" Content="201" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_202" Content="202" HorizontalAlignment="Left" Margin="85,290,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_203" Content="203" HorizontalAlignment="Left" Margin="160,290,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_204" Content="204" HorizontalAlignment="Left" Margin="235,290,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_205" Content="205" HorizontalAlignment="Left" Margin="310,290,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name ="b_206" Content="206" HorizontalAlignment="Left" Margin="385,290,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name ="b_102" Content="102" HorizontalAlignment="Left" Margin="85,268,0,0" VerticalAlignment="Top" Width="75" Click="B_102_Click"/>
+        <Button x:Name ="b_103" Content="103" HorizontalAlignment="Left" Margin="160,268,0,0" VerticalAlignment="Top" Width="75" Click="B_103_Click"/>
+        <Button x:Name ="b_104" Content="104" HorizontalAlignment="Left" Margin="235,268,0,0" VerticalAlignment="Top" Width="75" Click="B_104_Click"/>
+        <Button x:Name ="b_105" Content="105" HorizontalAlignment="Left" Margin="310,268,0,0" VerticalAlignment="Top" Width="75" Click="B_105_Click"/>
+        <Button x:Name ="b_106" Content="106" HorizontalAlignment="Left" Margin="385,268,0,0" VerticalAlignment="Top" Width="75" Click="B_106_Click"/>
+        <Button x:Name ="b_201" Content="201" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="75" Click="B_201_Click" />
+        <Button x:Name ="b_202" Content="202" HorizontalAlignment="Left" Margin="85,290,0,0" VerticalAlignment="Top" Width="75" Click="B_202_Click"/>
+        <Button x:Name ="b_203" Content="203" HorizontalAlignment="Left" Margin="160,290,0,0" VerticalAlignment="Top" Width="75" Click="B_203_Click"/>
+        <Button x:Name ="b_204" Content="204" HorizontalAlignment="Left" Margin="235,290,0,0" VerticalAlignment="Top" Width="75" Click="B_204_Click"/>
+        <Button x:Name ="b_205" Content="205" HorizontalAlignment="Left" Margin="310,290,0,0" VerticalAlignment="Top" Width="75" Click="B_205_Click"/>
+        <Button x:Name ="b_206" Content="206" HorizontalAlignment="Left" Margin="385,290,0,0" VerticalAlignment="Top" Width="75" Click="B_206_Click"/>
         <!-- Информация о номере -->
         <Label x:Name ="label_info" Content="" HorizontalAlignment="Left" Height="111" Margin="10,335,0,0" VerticalAlignment="Top" Width="512" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="Black" Foreground="#FF040000" Background="#FF76EC4A"/>
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,313,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="300"><Run Text="Информация о т"/><Run Text="е"/><Run Text="кущему номере"/><Run Text=":"/></TextBlock>
