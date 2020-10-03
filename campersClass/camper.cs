@@ -37,13 +37,15 @@ namespace campersClass
         static public void read()
         {
             string temp_str;
-            camper temp = new camper();
+            //camper temp = new camper();
             using (StreamReader sr = new StreamReader("info.txt"))
             {
                 while (true)
                 {
+                    camper temp = new camper();
                     temp_str = sr.ReadLine();
                     /*Парсим ФИО*/
+                    if (temp_str == null) break;
                     string[] stroka = temp_str.Split(":".ToCharArray());
                     /*Не знаю как сделать проверку в C# на конец файла в интернете не нашел сделал так*/
                     if (stroka.Length < 2) break;
