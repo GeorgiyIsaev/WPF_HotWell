@@ -41,8 +41,11 @@ namespace WPF_HotWell
 
         private void But_input_Click(object sender, RoutedEventArgs e)
         {
-            List<camper> list_campers = new List<camper>();
+            /*if(проверка всех введений), если нет сменим цвет кнопки*/
 
+
+            List<camper> list_campers = new List<camper>();
+            list_campers.Add();
 
         }
     }
