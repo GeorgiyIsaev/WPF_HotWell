@@ -115,6 +115,7 @@ namespace WPF_HotWell
           /*Что я хочу: если никто там не живет то при нажатии меняется на желтый желтый цвет,
            * и выводит инфомрацию в лейб, если живет красный цвет и информацию о жильце*/
 
+            campers.current_room = 101;
             if (campers.find_nuber_room(campers.current_room.Value))
             {
                 b_101.Background = Brushes.Red;
