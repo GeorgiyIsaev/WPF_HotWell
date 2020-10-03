@@ -24,9 +24,7 @@ namespace WPF_HotWell
     {
         public MainWindow()
         {
-            
-
-            InitializeComponent();
+           InitializeComponent();
          //InitializeListDate();
         }
         private void InitializeListDate()
@@ -70,9 +68,8 @@ namespace WPF_HotWell
                  * условно всегда будит только одна сегодняшняя*/
                 
                 //DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
-
                 int count_num = Convert.ToInt32(input_countDay.Text);
-                label_info.Content = $"Дата {DateTime.Now} Число: {count_num}";/*{now_it} */
+                label_info.Content = $"Дата {DateTime.Now} Число: {count_num}"; /*для проверки */
                 temp.record_DataTime(DateTime.Now, DateTime.Now.AddDays(count_num)); 
 
             }
@@ -106,6 +103,16 @@ namespace WPF_HotWell
             /*Надо добавить проверка что сило дне это число*/
             /*Еще нужно добавать, что выбрана конмната - отдельный метод*/
             return true;
+        }
+
+
+        private void B_101_Click(object sender, RoutedEventArgs e)
+        { /*Это для каждой кнопки получается придется обработчик делать... */
+            /*Что я хочу: если никто там не живет то при нажатии меняется на желтый желтый цвет,
+             * и выводит инфомрацию в лейб, если живет красный цвет и информацию о жильце*/
+
+            if()
+
         }
     }
     class Data_listBox
@@ -168,15 +175,19 @@ namespace WPF_HotWell
         }
         public void record_room(int n, bool futon, bool food)
         {
-            number_room= n; if_futon = futon; if_food = food;
+            number_room = n; if_futon = futon; if_food = food;
         }
-        public void record_DataTime (DateTime begin, DateTime end)
+        public void record_DataTime(DateTime begin, DateTime end)
         {
             data_input = begin; data_output = end;
         }
+        public bool if_nuber_it(int num)
+        {
+            /*Проверка живет ли кто то в этой комнате, 
+             потом можно улчшить живет ли кто в комнате на эту дату*/
+          
+
+            return number_room == num;
+        }
     }
-
-
-
-
 }
