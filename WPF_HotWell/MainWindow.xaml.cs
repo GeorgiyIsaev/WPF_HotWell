@@ -18,11 +18,13 @@ using campersClass;
 
 namespace WPF_HotWell
 {
+    public delegate string Info_deleg(string str);
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Info_deleg info_deleg;
         public MainWindow()
         {            
             InitializeComponent();
@@ -66,6 +68,7 @@ namespace WPF_HotWell
 
         private void But_input_Click(object sender, RoutedEventArgs e)
         {
+            recet_full();
             if (if_input_full()) 
             {
                 camper temp = new camper();
@@ -73,7 +76,7 @@ namespace WPF_HotWell
                 /*В чем разница между bool? и просто bool? почему я не могу сразу передать значеие*/
                 temp.record_room(campers.current_room.Value, add_futon.IsChecked == true, add_food.IsChecked == true);
                 /*Не получается програмно в лсит бокс передать даты, 
-                 * условно всегда будит только одна сегодняшняя*/
+                 * условно всегда будит только одна датат - сегодняшняя*/
                 
                 //DateTime now_it = new DateTime(DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);  
                 int count_num = Convert.ToInt32(input_countDay.Text);
@@ -82,28 +85,35 @@ namespace WPF_HotWell
                               
                 campers.list_campers.Add(temp);
                 label_info.Content = campers.find_nuber_room_STR(campers.current_room.Value);
-                campers.save();
-                recet_full();
+                campers.save();               
             }
             else
             {
-                MessageBox.Show("Неполные данные"); 
+                MessageBox.Show(info_deleg); 
             } 
         }
+        private void messege(string mes)
+        {
+            MessageBox.Show(mes);
+        }
+
         private bool if_input_full()
         {
+            List<bool> false_if = new List<bool>();
             /*Проверка что все записи присутствуют перед началом записи*/
-            if (input_name.Text == "") { input_name.Background = Brushes.Yellow; return false; }
-            if (input_famile.Text == "") { input_famile.Background = Brushes.Yellow; return false; }
-            if (input_father.Text == "") { input_father.Background = Brushes.Yellow; return false; }
-            if (input_tel.Text == "") { input_tel.Background = Brushes.Yellow; return false; }
-            if (input_countDay.Text == "") { input_countDay.Background = Brushes.Yellow; return false; }
+            if (input_name.Text == "") { input_name.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_famile.Text == "") { input_famile.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_father.Text == "") { input_father.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_tel.Text == "") { input_tel.Background = Brushes.Yellow; false_if.Add(false); }
+            if (input_countDay.Text == "") { input_countDay.Background = Brushes.Yellow; false_if.Add(false); }
             /*Короче для проверки на число нашел вот такую замудренную конструкцию*/
             int num = 0;
             if(!int.TryParse(input_countDay.Text, out num))
             {
-                input_countDay.Background = Brushes.Yellow; return false;
+                input_countDay.Background = Brushes.Yellow; false_if.Add(false);
             }
+            foreach (bool if_it in false_if)
+                if (if_it == false) return false;
 
             /*Проверка занятости комнаты*/
             if (campers.current_room == null) return false;
@@ -195,8 +205,8 @@ namespace WPF_HotWell
         }
 
         private void calor_Room_Back()
-        { /*Этот метод должен востанавливать цвет все другим комнатам-кнопкам*/
-          /*А какой цвет был изначально на кнопке??*/
+        { /*Этот метод должен востанавливать цвет всем комнатам-кнопкам*/
+          /*А какой цвет был изначально на кнопке.. ЛОЛ??*/
             b_101.Background = campers.find_nuber_room(101) ? Brushes.Red : Brushes.White;
             b_102.Background = campers.find_nuber_room(102) ? Brushes.Red : Brushes.White;
             b_103.Background = campers.find_nuber_room(103) ? Brushes.Red : Brushes.White;
@@ -213,9 +223,13 @@ namespace WPF_HotWell
             /*Короче где нет жильцов белые, где уже есть красные*/
         }
     }
+
+
+
+
+
     class Data_listBox
-    {
-      
+    {      
         public List<DateTime> DT;
         public Data_listBox()
         {
