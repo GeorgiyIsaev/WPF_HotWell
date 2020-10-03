@@ -63,7 +63,7 @@ namespace WPF_HotWell
                 camper temp = new camper();
                 temp.record_FIO_T(input_name.Text, input_famile.Text, input_father.Text, input_tel.Text);
                 /*В чем разница между bool? и просто bool? почему я не могу сразу передать значеие*/
-                temp.record_room(0, add_futon.IsChecked == true, add_food.IsChecked == true);
+                temp.record_room(101, add_futon.IsChecked == true, add_food.IsChecked == true);
                 /*Не получается програмно в лсит бокс передать даты, 
                  * условно всегда будит только одна сегодняшняя*/
                 
@@ -73,7 +73,7 @@ namespace WPF_HotWell
                 temp.record_DataTime(DateTime.Now, DateTime.Now.AddDays(count_num));
 
                 campers.list_campers.Add(temp);
-
+                label_info.Content = campers.find_nuber_room_STR(101);
             }
             else
             {
@@ -116,7 +116,7 @@ namespace WPF_HotWell
             if (campers.find_nuber_room(101))
             {
                 b_101.Background = Brushes.Red;
-                label_info.Content = "";
+                label_info.Content = campers.find_nuber_room_STR(101);
             }
             else
             {               
@@ -156,7 +156,12 @@ namespace WPF_HotWell
                 if (tmp.if_nuber_it(num)) return true; /*Здесь кто-то живет*/
             return false;
         }
-
+        static public string find_nuber_room_STR(int num)
+        { /*Поиск по комнте - все также только возвращаем строку*/
+            foreach (camper tmp in campers.list_campers)
+                if (tmp.if_nuber_it(num)) return tmp.ToString(); /*Здесь кто-то живет*/
+            return "Ни чего не найдено";
+        }
     }
 
 
@@ -203,8 +208,7 @@ namespace WPF_HotWell
         public bool if_nuber_it(int num)
         {
             /*Проверка живет ли кто то в этой комнате, 
-             потом можно улчшить живет ли кто в комнате на эту дату*/
-          
+             потом можно улчшить живет ли кто в комнате на эту дату*/        
 
             return number_room == num;
         }
