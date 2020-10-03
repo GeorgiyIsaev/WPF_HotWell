@@ -91,8 +91,8 @@ namespace campersClass
                 if (if_food) temp += " Еду в номер;";
                 temp += "\n";
             }
-            temp += $"Дата засиления: {data_input}, выселения {data_output}\n";
-            temp += $"Номер будит занят еще {(data_output - data_input).Days} дней.";
+            temp += $"Дата заселения: {data_input.ToShortDateString()} - Дата выселения {data_output.ToShortDateString()}\n";
+            temp += $"Номер будит занят еще {(data_output - DateTime.Now).Days} дней.";
             return temp;
         }
         /*Запись данных в структуру*/

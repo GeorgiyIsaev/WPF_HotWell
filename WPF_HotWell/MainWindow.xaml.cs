@@ -83,18 +83,12 @@ namespace WPF_HotWell
                 campers.list_campers.Add(temp);
                 label_info.Content = campers.find_nuber_room_STR(campers.current_room.Value);
                 campers.save();
+                recet_full();
             }
             else
             {
                 MessageBox.Show("Неполные данные"); 
-            }
-            
-            /*if(проверка всех введений), если нет сменим цвет кнопки*/
-            /*Ели все ок записываем данные в структуру, записывать буду методом а затем обект кидать в лист*/
-
-            //List<camper> list_campers = new List<camper>();
-            //list_campers.Add();
-
+            } 
         }
         private bool if_input_full()
         {
