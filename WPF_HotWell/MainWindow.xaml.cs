@@ -54,6 +54,8 @@ namespace WPF_HotWell
             input_father.Background = Brushes.White;
             input_tel.Background = Brushes.White;
             input_countDay.Background = Brushes.White;
+
+            calor_Room_Back(); //востановит цвета кнопкам
         }
 
         private void But_input_Click(object sender, RoutedEventArgs e)
@@ -63,7 +65,7 @@ namespace WPF_HotWell
                 camper temp = new camper();
                 temp.record_FIO_T(input_name.Text, input_famile.Text, input_father.Text, input_tel.Text);
                 /*В чем разница между bool? и просто bool? почему я не могу сразу передать значеие*/
-                temp.record_room(101, add_futon.IsChecked == true, add_food.IsChecked == true);
+                temp.record_room(campers.current_room.Value, add_futon.IsChecked == true, add_food.IsChecked == true);
                 /*Не получается програмно в лсит бокс передать даты, 
                  * условно всегда будит только одна сегодняшняя*/
                 
