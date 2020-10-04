@@ -7,51 +7,60 @@
         mc:Ignorable="d"
         Title="Отель на горячих источниках =)" Height="536" Width="545">
     <Grid Margin="0,0,0,-10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="72*"/>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="74*"/>
+            <ColumnDefinition Width="88*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="157*"/>
             <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <Label Content="Регистрация отдыхающих" Height="44" Margin="128,0,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" FontFamily="Vrinda" Background="Transparent" Foreground="#FF360CA6" FontStretch="Condensed" TextOptions.TextHintingMode="Fixed" HorizontalAlignment="Left" Width="306"/>
+        <Label Content="Регистрация отдыхающих" Height="44" Margin="45,0,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" FontFamily="Vrinda" Background="Transparent" Foreground="#FF360CA6" FontStretch="Condensed" TextOptions.TextHintingMode="Fixed" HorizontalAlignment="Left" Width="306" Grid.Column="1" Grid.ColumnSpan="5"/>
         <!--Основная информация-->
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,61,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119"><Run Text="Имя"/><Run Text=":"/></TextBlock>
-        <TextBox x:Name ="input_name" Height="27" Margin="137,56,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,88,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119" Text="Фамилия:"/>
-        <TextBox x:Name ="input_famile" Height="27" Margin="137,83,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,115,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119"><Run Text="Отчество"/><Run Text=":"/></TextBlock>
-        <TextBox x:Name ="input_father" Height="27" Margin="137,110,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,142,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119"><Run Text="Моб. т"/><Run Text="елефон"/><Run Text=":"/></TextBlock>
-        <TextBox x:Name ="input_tel" Height="27" Margin="137,137,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Height="22" Margin="10,61,26,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Grid.ColumnSpan="2"><Run Text="Имя"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name ="input_name" Height="27" Margin="54,56,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="6"/>
+        <TextBlock Height="22" Margin="10,88,26,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Text="Фамилия:" Grid.ColumnSpan="2"/>
+        <TextBox x:Name ="input_famile" Height="27" Margin="54,83,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="6"/>
+        <TextBlock Height="22" Margin="10,115,26,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Grid.ColumnSpan="2"><Run Text="Отчество"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name ="input_father" Height="27" Margin="54,110,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="6"/>
+        <TextBlock Height="22" Margin="10,142,26,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Grid.ColumnSpan="2"><Run Text="Моб. т"/><Run Text="елефон"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name ="input_tel" Height="27" Margin="54,137,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="6"/>
         <!--Дополнительная информация отмечается галочками-->
-        <CheckBox x:Name ="add_futon" Content="Дополнительный футон" HorizontalAlignment="Left" Margin="10,184,0,0" FontSize="16"  VerticalAlignment="Top" Height="25" Width="219"/>
-        <CheckBox x:Name ="add_food" Content="Еда в номер" HorizontalAlignment="Left" Margin="265,184,0,0" FontSize="16"  VerticalAlignment="Top" Height="25" Width="219"/>
+        <CheckBox x:Name ="add_futon" Content="Дополнительный футон" HorizontalAlignment="Left" Margin="10,184,0,0" FontSize="16"  VerticalAlignment="Top" Height="25" Width="219" Grid.ColumnSpan="4"/>
+        <CheckBox x:Name ="add_food" Content="Еда в номер" HorizontalAlignment="Left" Margin="37,184,0,0" FontSize="16"  VerticalAlignment="Top" Height="25" Width="219" Grid.Column="3" Grid.ColumnSpan="4"/>
         <!-- Дата и номер засиления -->
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,214,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119"><Run Text="Дата зас"/><Run Text="е"/><Run Text="ления"/><Run Text=":"/></TextBlock>
-        <ComboBox x:Name ="data_list"  HorizontalAlignment="Left" Margin="137,214,0,0" VerticalAlignment="Top" Width="148"/>
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="300,214,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="143" Text="Колличество дней:"/>
-        <TextBox x:Name ="input_countDay" Height="27" Margin="443,209,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="5.469,-1.818"/>
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,241,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="143"><Run Text="Номер "/><Run Text="команты"/><Run Text=":"/></TextBlock>
+        <TextBlock Height="22" Margin="10,214,26,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Grid.ColumnSpan="2"><Run Text="Дата зас"/><Run Text="е"/><Run Text="ления"/><Run Text=":"/></TextBlock>
+        <ComboBox x:Name ="data_list"  HorizontalAlignment="Left" Margin="54,214,0,0" VerticalAlignment="Top" Width="148" Grid.Column="1" Grid.ColumnSpan="3"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="1,214,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="140" Text="Колличество дней:" Grid.Column="4" Grid.ColumnSpan="2"/>
+        <TextBox x:Name ="input_countDay" Height="27" Margin="73,209,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="5.469,-1.818" Grid.Column="5" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,241,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="143" Grid.ColumnSpan="2"><Run Text="Номер "/><Run Text="команты"/><Run Text=":"/></TextBlock>
 
-        <Button x:Name ="b_101" Content="101" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="73" Click="B_101_Click"/>
-        <Button x:Name ="b_102" Content="102" HorizontalAlignment="Left" Margin="83,268,0,0" VerticalAlignment="Top" Width="73" Click="B_102_Click"/>
-        <Button x:Name ="b_103" Content="103" HorizontalAlignment="Left" Margin="156,268,0,0" VerticalAlignment="Top" Width="73" Click="B_103_Click"/>
-        <Button x:Name ="b_104" Content="104" HorizontalAlignment="Left" Margin="229,268,0,0" VerticalAlignment="Top" Width="74" Click="B_104_Click"/>
-        <Button x:Name ="b_105" Content="105" HorizontalAlignment="Left" Margin="303,268,0,0" VerticalAlignment="Top" Width="73" Click="B_105_Click"/>
-        <Button x:Name ="b_106" Content="106" HorizontalAlignment="Left" Margin="376,268,0,0" VerticalAlignment="Top" Width="73" Click="B_106_Click"/>
-        <Button x:Name ="b_107" Content="107" HorizontalAlignment="Left" Margin="449,268,0,0" VerticalAlignment="Top" Width="73" Click="B_107_Click"/>
-        <Button x:Name ="b_201" Content="201" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="73" Click="B_201_Click" />
-        <Button x:Name ="b_202" Content="202" HorizontalAlignment="Left" Margin="83,290,0,0" VerticalAlignment="Top" Width="73" Click="B_202_Click"/>
-        <Button x:Name ="b_203" Content="203" HorizontalAlignment="Left" Margin="156,290,0,0" VerticalAlignment="Top" Width="73" Click="B_203_Click"/>
-        <Button x:Name ="b_204" Content="204" HorizontalAlignment="Left" Margin="229,290,0,0" VerticalAlignment="Top" Width="74" Click="B_204_Click"/>
-        <Button x:Name ="b_205" Content="205" HorizontalAlignment="Left" Margin="303,290,0,0" VerticalAlignment="Top" Width="73" Click="B_205_Click"/>
-        <Button x:Name ="b_206" Content="206" HorizontalAlignment="Left" Margin="376,290,0,0" VerticalAlignment="Top" Width="73" Click="B_206_Click"/>
-        <Button x:Name ="b_207" Content="207" HorizontalAlignment="Left" Margin="449,290,0,0" VerticalAlignment="Top" Width="73" Click="B_207_Click"/>
+        <Button x:Name ="b_101" Content="101" Margin="10,268,0,0" VerticalAlignment="Top" Click="B_101_Click"/>
+        <Button x:Name ="b_102" Content="102" Margin="0,268,0,0" VerticalAlignment="Top" Click="B_102_Click" Grid.Column="1"/>
+        <Button x:Name ="b_103" Content="103" Margin="1,268,0,0" VerticalAlignment="Top" Click="B_103_Click" Grid.Column="2"/>
+        <Button x:Name ="b_104" Content="104" Margin="1,268,0,0" VerticalAlignment="Top" Click="B_104_Click" Grid.Column="3"/>
+        <Button x:Name ="b_105" Content="105" Margin="1,268,0,0" VerticalAlignment="Top" Click="B_105_Click" Grid.Column="4"/>
+        <Button x:Name ="b_106" Content="106" Margin="1,268,0,0" VerticalAlignment="Top" Click="B_106_Click" Grid.Column="5"/>
+        <Button x:Name ="b_107" Content="107" Margin="0,268,15,0" VerticalAlignment="Top" Click="B_107_Click" Grid.Column="6"/>
+        <Button x:Name ="b_201" Content="201" Margin="10,290,0,0" VerticalAlignment="Top" Click="B_201_Click" />
+        <Button x:Name ="b_202" Content="202" Margin="0,290,0,0" VerticalAlignment="Top" Click="B_202_Click" Grid.Column="1"/>
+        <Button x:Name ="b_203" Content="203" Margin="1,290,0,0" VerticalAlignment="Top" Click="B_203_Click" Grid.Column="2"/>
+        <Button x:Name ="b_204" Content="204" Margin="1,290,0,0" VerticalAlignment="Top" Click="B_204_Click" Grid.Column="3"/>
+        <Button x:Name ="b_205" Content="205" Margin="1,290,0,0" VerticalAlignment="Top" Click="B_205_Click" Grid.Column="4"/>
+        <Button x:Name ="b_206" Content="206" Margin="1,290,0,0" VerticalAlignment="Top" Click="B_206_Click" Grid.Column="5"/>
+        <Button x:Name ="b_207" Content="207" Margin="0,290,15,0" VerticalAlignment="Top" Click="B_207_Click" Grid.Column="6"/>
         <!-- Информация о номере -->
-        <Label x:Name ="label_info" Content="" Margin="10,335,15,2" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="Black" Foreground="#FF040000" Background="#FF76EC4A"/>
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,313,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="300"><Run Text="Информация о т"/><Run Text="е"/><Run Text="кущему номере"/><Run Text=":"/></TextBlock>
+        <Label x:Name ="label_info" Content="" Margin="10,335,15,2" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="Black" Foreground="#FF040000" Background="#FF76EC4A" Grid.ColumnSpan="7"/>
+        <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,313,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="300" Grid.ColumnSpan="5"><Run Text="Информация о т"/><Run Text="е"/><Run Text="кущему номере"/><Run Text=":"/></TextBlock>
         <!-- Контролы -->
-        <Button x:Name ="but_papka" Content="П" HorizontalAlignment="Left" Margin="10,2,0,13" Width="46" RenderTransformOrigin="-1.993,0.75" Grid.Row="1" Click="But_papka_Click"/>
-        <Button x:Name ="but_cler" Content="Очистить все поля" HorizontalAlignment="Left" Margin="56,2,0,13" Width="186" Click="But_Cler_Click" Grid.Row="1"/>
-        <Button x:Name ="but_input" Content="Заселить" Margin="337,0,15,15" Click="But_input_Click" Grid.Row="1"/>
-       
+        <Button x:Name ="but_papka" Content="П" Margin="10,2,0,13" RenderTransformOrigin="-1.993,0.75" Grid.Row="1" Click="But_papka_Click"/>
+        <Button x:Name ="but_cler" Content="Очистить все поля" Margin="0,2,0,13" Click="But_Cler_Click" Grid.ColumnSpan="3" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name ="but_input" Content="Заселить" Margin="1,3,15,12" Click="But_input_Click" Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="3"/>
+
     </Grid>
 </Window>
