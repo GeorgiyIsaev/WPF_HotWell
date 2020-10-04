@@ -11,7 +11,7 @@
             <RowDefinition Height="157*"/>
             <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <Label Content="Регистрация отдыхающих" Height="44" Margin="31,10,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" FontFamily="Vrinda" Background="Transparent" Foreground="#FF360CA6" FontStretch="Condensed" TextOptions.TextHintingMode="Fixed" HorizontalAlignment="Left" Width="322"/>
+        <Label Content="Регистрация отдыхающих" Height="44" Margin="128,0,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="SemiBold" FontFamily="Vrinda" Background="Transparent" Foreground="#FF360CA6" FontStretch="Condensed" TextOptions.TextHintingMode="Fixed" HorizontalAlignment="Left" Width="306"/>
         <!--Основная информация-->
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,61,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="119"><Run Text="Имя"/><Run Text=":"/></TextBlock>
         <TextBox x:Name ="input_name" Height="27" Margin="137,56,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -31,18 +31,20 @@
         <TextBox x:Name ="input_countDay" Height="27" Margin="443,209,15,0" FontSize="16" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="5.469,-1.818"/>
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,241,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="143"><Run Text="Номер "/><Run Text="команты"/><Run Text=":"/></TextBlock>
 
-        <Button x:Name ="b_101" Content="101" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="75" Click="B_101_Click"/>
-        <Button x:Name ="b_102" Content="102" HorizontalAlignment="Left" Margin="85,268,0,0" VerticalAlignment="Top" Width="75" Click="B_102_Click"/>
-        <Button x:Name ="b_103" Content="103" HorizontalAlignment="Left" Margin="160,268,0,0" VerticalAlignment="Top" Width="75" Click="B_103_Click"/>
-        <Button x:Name ="b_104" Content="104" HorizontalAlignment="Left" Margin="235,268,0,0" VerticalAlignment="Top" Width="75" Click="B_104_Click"/>
-        <Button x:Name ="b_105" Content="105" HorizontalAlignment="Left" Margin="310,268,0,0" VerticalAlignment="Top" Width="75" Click="B_105_Click"/>
-        <Button x:Name ="b_106" Content="106" HorizontalAlignment="Left" Margin="385,268,0,0" VerticalAlignment="Top" Width="75" Click="B_106_Click"/>
-        <Button x:Name ="b_201" Content="201" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="75" Click="B_201_Click" />
-        <Button x:Name ="b_202" Content="202" HorizontalAlignment="Left" Margin="85,290,0,0" VerticalAlignment="Top" Width="75" Click="B_202_Click"/>
-        <Button x:Name ="b_203" Content="203" HorizontalAlignment="Left" Margin="160,290,0,0" VerticalAlignment="Top" Width="75" Click="B_203_Click"/>
-        <Button x:Name ="b_204" Content="204" HorizontalAlignment="Left" Margin="235,290,0,0" VerticalAlignment="Top" Width="75" Click="B_204_Click"/>
-        <Button x:Name ="b_205" Content="205" HorizontalAlignment="Left" Margin="310,290,0,0" VerticalAlignment="Top" Width="75" Click="B_205_Click"/>
-        <Button x:Name ="b_206" Content="206" HorizontalAlignment="Left" Margin="385,290,0,0" VerticalAlignment="Top" Width="75" Click="B_206_Click"/>
+        <Button x:Name ="b_101" Content="101" HorizontalAlignment="Left" Margin="10,268,0,0" VerticalAlignment="Top" Width="73" Click="B_101_Click"/>
+        <Button x:Name ="b_102" Content="102" HorizontalAlignment="Left" Margin="83,268,0,0" VerticalAlignment="Top" Width="73" Click="B_102_Click"/>
+        <Button x:Name ="b_103" Content="103" HorizontalAlignment="Left" Margin="156,268,0,0" VerticalAlignment="Top" Width="73" Click="B_103_Click"/>
+        <Button x:Name ="b_104" Content="104" HorizontalAlignment="Left" Margin="229,268,0,0" VerticalAlignment="Top" Width="74" Click="B_104_Click"/>
+        <Button x:Name ="b_105" Content="105" HorizontalAlignment="Left" Margin="303,268,0,0" VerticalAlignment="Top" Width="73" Click="B_105_Click"/>
+        <Button x:Name ="b_106" Content="106" HorizontalAlignment="Left" Margin="376,268,0,0" VerticalAlignment="Top" Width="73" Click="B_106_Click"/>
+        <Button x:Name ="b_107" Content="107" HorizontalAlignment="Left" Margin="449,268,0,0" VerticalAlignment="Top" Width="73" Click="B_107_Click"/>
+        <Button x:Name ="b_201" Content="201" HorizontalAlignment="Left" Margin="10,290,0,0" VerticalAlignment="Top" Width="73" Click="B_201_Click" />
+        <Button x:Name ="b_202" Content="202" HorizontalAlignment="Left" Margin="83,290,0,0" VerticalAlignment="Top" Width="73" Click="B_202_Click"/>
+        <Button x:Name ="b_203" Content="203" HorizontalAlignment="Left" Margin="156,290,0,0" VerticalAlignment="Top" Width="73" Click="B_203_Click"/>
+        <Button x:Name ="b_204" Content="204" HorizontalAlignment="Left" Margin="229,290,0,0" VerticalAlignment="Top" Width="74" Click="B_204_Click"/>
+        <Button x:Name ="b_205" Content="205" HorizontalAlignment="Left" Margin="303,290,0,0" VerticalAlignment="Top" Width="73" Click="B_205_Click"/>
+        <Button x:Name ="b_206" Content="206" HorizontalAlignment="Left" Margin="376,290,0,0" VerticalAlignment="Top" Width="73" Click="B_206_Click"/>
+        <Button x:Name ="b_207" Content="207" HorizontalAlignment="Left" Margin="449,290,0,0" VerticalAlignment="Top" Width="73" Click="B_207_Click"/>
         <!-- Информация о номере -->
         <Label x:Name ="label_info" Content="" Margin="10,335,15,2" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="Black" Foreground="#FF040000" Background="#FF76EC4A"/>
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,313,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="300"><Run Text="Информация о т"/><Run Text="е"/><Run Text="кущему номере"/><Run Text=":"/></TextBlock>
@@ -50,6 +52,6 @@
         <Button x:Name ="but_papka" Content="П" HorizontalAlignment="Left" Margin="10,2,0,13" Width="46" RenderTransformOrigin="-1.993,0.75" Grid.Row="1" Click="But_papka_Click"/>
         <Button x:Name ="but_cler" Content="Очистить все поля" HorizontalAlignment="Left" Margin="56,2,0,13" Width="186" Click="But_Cler_Click" Grid.Row="1"/>
         <Button x:Name ="but_input" Content="Заселить" Margin="337,0,15,15" Click="But_input_Click" Grid.Row="1"/>
-
+       
     </Grid>
 </Window>

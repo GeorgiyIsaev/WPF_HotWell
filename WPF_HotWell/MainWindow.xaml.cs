@@ -164,6 +164,11 @@ namespace WPF_HotWell
             campers.current_room = 106;
             obrabotka_komnat(b_106);
         }
+        private void B_107_Click(object sender, RoutedEventArgs e)
+        {
+            campers.current_room = 106;
+            obrabotka_komnat(b_106);
+        }
         private void B_201_Click(object sender, RoutedEventArgs e)
         {
             campers.current_room = 201;
@@ -194,7 +199,11 @@ namespace WPF_HotWell
             campers.current_room = 206;
             obrabotka_komnat(b_206);
         }
-
+        private void B_207_Click(object sender, RoutedEventArgs e)
+        {
+            campers.current_room = 207;
+            obrabotka_komnat(b_207);
+        }
 
         private void obrabotka_komnat(Button b)
         {/*Повторяющаяся часть для всех комнат*/
