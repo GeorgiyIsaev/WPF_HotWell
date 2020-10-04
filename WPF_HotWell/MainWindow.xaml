@@ -47,7 +47,8 @@
         <Label x:Name ="label_info" Content="" Margin="10,335,15,2" FontSize="16" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="Black" Foreground="#FF040000" Background="#FF76EC4A"/>
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="10,313,0,0" TextWrapping="Wrap" FontSize="16" VerticalAlignment="Top" Width="300"><Run Text="Информация о т"/><Run Text="е"/><Run Text="кущему номере"/><Run Text=":"/></TextBlock>
         <!-- Контролы -->
-        <Button x:Name ="but_cler" Content="Очистить все поля" HorizontalAlignment="Left" Margin="10,0,0,15" Width="186" Click="But_Cler_Click" Grid.Row="1"/>
+        <Button x:Name ="but_papka" Content="П" HorizontalAlignment="Left" Margin="10,2,0,13" Width="46" RenderTransformOrigin="-1.993,0.75" Grid.Row="1" Click="But_papka_Click"/>
+        <Button x:Name ="but_cler" Content="Очистить все поля" HorizontalAlignment="Left" Margin="56,2,0,13" Width="186" Click="But_Cler_Click" Grid.Row="1"/>
         <Button x:Name ="but_input" Content="Заселить" Margin="337,0,15,15" Click="But_input_Click" Grid.Row="1"/>
 
     </Grid>

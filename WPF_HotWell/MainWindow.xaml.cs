@@ -229,6 +229,19 @@ namespace WPF_HotWell
             b_206.Background = campers.find_nuber_room(206) ? Brushes.Red : Brushes.White;
             /*Короче где нет жильцов белые, где уже есть красные*/
         }
+
+        private void But_papka_Click(object sender, RoutedEventArgs e)
+        {
+            /*Кнопка открывает папке в которой расположено приложение а также файл с логом и файл с данными*/
+
+            string name_exe = "\\" +  AppDomain.CurrentDomain.FriendlyName; //короткое имя
+            string path = System.Reflection.Assembly.GetExecutingAssembly().Location; //полное имя
+            string forever_papka = path.Replace(name_exe,"");
+            // label_info.Content += path;
+            //label_info.Content += forever_papka;
+            System.Diagnostics.Process.Start("explorer", forever_papka);
+
+        }
     }
 
 
