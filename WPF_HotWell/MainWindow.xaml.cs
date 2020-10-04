@@ -166,7 +166,7 @@ namespace WPF_HotWell
         }
         private void B_107_Click(object sender, RoutedEventArgs e)
         {
-            campers.current_room = 106;
+            campers.current_room = 107;
             obrabotka_komnat(b_106);
         }
         private void B_201_Click(object sender, RoutedEventArgs e)
@@ -229,6 +229,7 @@ namespace WPF_HotWell
             b_104.Background = campers.find_nuber_room(104) ? Brushes.Red : Brushes.White;
             b_105.Background = campers.find_nuber_room(105) ? Brushes.Red : Brushes.White;
             b_106.Background = campers.find_nuber_room(106) ? Brushes.Red : Brushes.White;
+            b_107.Background = campers.find_nuber_room(107) ? Brushes.Red : Brushes.White;
 
             b_201.Background = campers.find_nuber_room(201) ? Brushes.Red : Brushes.White; 
             b_202.Background = campers.find_nuber_room(202) ? Brushes.Red : Brushes.White;
@@ -236,6 +237,7 @@ namespace WPF_HotWell
             b_204.Background = campers.find_nuber_room(204) ? Brushes.Red : Brushes.White;
             b_205.Background = campers.find_nuber_room(205) ? Brushes.Red : Brushes.White;
             b_206.Background = campers.find_nuber_room(206) ? Brushes.Red : Brushes.White;
+            b_207.Background = campers.find_nuber_room(207) ? Brushes.Red : Brushes.White;
             /*Короче где нет жильцов белые, где уже есть красные*/
         }
 
